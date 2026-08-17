@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ profile.name }} | Skills</title>
+    <meta name="description" content="Skills and strengths for {{ profile.name }}." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">MY RESUME</div>
+        <nav class="nav">
+          <a href="/">Home</a>
+          <a href="/resume">Resume</a>
+          <a href="/skills">Skills</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </header>
+
+      <main class="hero">
+        <section class="panel reveal">
+          <div class="section-header">
+            <span class="mini-badge">Skills</span>
+            <h2>Core Strengths</h2>
+          </div>
+          <div class="skill-tags">
+            {% for skill in profile.skills %}
+            <span>{{ skill }}</span>
+            {% endfor %}
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

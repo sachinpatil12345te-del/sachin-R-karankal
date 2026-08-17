@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ profile.name }} | Contact</title>
+    <meta name="description" content="Contact information for {{ profile.name }}." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">MY RESUME</div>
+        <nav class="nav">
+          <a href="/">Home</a>
+          <a href="/resume">Resume</a>
+          <a href="/skills">Skills</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </header>
+
+      <main class="hero">
+        <section class="contact-hero reveal">
+          <div class="contact-hero-copy">
+            <span class="mini-badge">Connect</span>
+            <h1>Let’s talk opportunities.</h1>
+          </div>
+
+          <div class="contact-metrics">
+            <article class="metric-pill">
+              <strong>24H</strong>
+              <span>Response time</span>
+            </article>
+            <article class="metric-pill">
+              <strong>Job</strong>
+              <span>Focus area</span>
+            </article>
+            <article class="metric-pill">
+              <strong>Remote</strong>
+              <span>Open to work</span>
+            </article>
+          </div>
+        </section>
+
+        <section class="info-grid reveal">
+          <article class="info-box">
+            <span class="icon">📱</span>
+            <div>
+              <p class="label">Mobile No</p>
+              <h3>{{ profile.mobile }}</h3>
+            </div>
+          </article>
+
+          <article class="info-box">
+            <span class="icon">💬</span>
+            <div>
+              <p class="label">WhatsApp No</p>
+              <h3>{{ profile.whatsapp }}</h3>
+            </div>
+          </article>
+
+          <article class="info-box">
+            <span class="icon">📷</span>
+            <div>
+              <p class="label">Instagram ID</p>
+              <h3>{{ profile.instagram }}</h3>
+            </div>
+          </article>
+
+          <article class="info-box">
+            <span class="icon">✉️</span>
+            <div>
+              <p class="label">Email</p>
+              <h3>{{ profile.email }}</h3>
+            </div>
+          </article>
+        </section>
+
+        <section class="contact-panel reveal">
+          <div class="contact-copy">
+            <span class="mini-badge">Get in touch</span>
+            <h2>Let’s create something meaningful together.</h2>
+            <p>
+              I’m open to job opportunities, collaborations, and professional networking where I can contribute,
+              learn, and grow through technology, creativity, and problem-solving.
+            </p>
+
+            <div class="contact-highlight-grid">
+              <div class="contact-highlight">
+                <span>📞</span>
+                <div>
+                  <small>Call</small>
+                  <strong>{{ profile.mobile }}</strong>
+                </div>
+              </div>
+              <div class="contact-highlight">
+                <span>💬</span>
+                <div>
+                  <small>WhatsApp</small>
+                  <strong>{{ profile.whatsapp }}</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a class="contact-chip primary" href="tel:+919226313805">Call Now</a>
+              <a class="contact-chip whatsapp" href="https://wa.me/919226313805" target="_blank" rel="noreferrer">WhatsApp</a>
+              <a class="contact-chip email" href="mailto:{{ profile.email }}">Email Me</a>
+              <a class="contact-chip premium" href="/Sachin_R_Karankal_CV.docx" download>Download Resume CV</a>
+              <a class="contact-chip whatsapp" href="https://wa.me/919226313805?text=Hi%20Sachin%2C%20I%20want%20to%20talk%20about%20an%20opportunity." target="_blank" rel="noreferrer">Quick Message</a>
+            </div>
+          </div>
+
+          <form class="contact-form">
+            <div class="form-header">
+              <h3>Send a message</h3>
+              <span>Quick response</span>
+            </div>
+
+            <div class="quick-choice-row" aria-label="Choose your inquiry type">
+              <button type="button" class="quick-choice active" data-choice="Job Opportunity">Job Opportunity</button>
+              <button type="button" class="quick-choice" data-choice="Collaboration">Collaboration</button>
+              <button type="button" class="quick-choice" data-choice="General Inquiry">General Inquiry</button>
+            </div>
+
+            <input type="hidden" name="userType" value="Job Opportunity" />
+
+            <label class="form-field">
+              <span>Your Name</span>
+              <input type="text" name="name" placeholder="Enter your name" aria-label="Your Name" />
+            </label>
+
+            <label class="form-field">
+              <span>Your Email</span>
+              <input type="email" name="email" placeholder="Enter your email" aria-label="Your Email" />
+            </label>
+
+            <label class="form-field">
+              <span>Inquiry Type</span>
+              <select name="inquiryType" aria-label="Inquiry Type">
+                <option value="Job Opportunity">Job Opportunity</option>
+                <option value="Collaboration">Collaboration</option>
+                <option value="General Inquiry">General Inquiry</option>
+              </select>
+            </label>
+
+            <label class="form-field">
+              <span>Your Message</span>
+              <textarea name="message" rows="4" placeholder="Tell me about your opportunity" aria-label="Your Message"></textarea>
+            </label>
+
+            <button type="submit">Send via WhatsApp</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
